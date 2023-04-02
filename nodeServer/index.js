@@ -13,4 +13,4 @@ io.on('connection',socket=>{
     })
 })
 
-// console.log("hello")
+console.log("hello")
