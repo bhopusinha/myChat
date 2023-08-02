@@ -1,9 +1,11 @@
 // node server which will handle socket io connection 
-const io = require('socket.io')(8600, {
-   cors: {
-      origin: "*"
-   }
-})
+const express = require('express');
+const app = express();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+const cors = require('cors');
+
+app.use(cors());
 
 const users = {};
 
@@ -23,3 +25,8 @@ io.on('connection', socket => {
       delete users[socket.id];
    });
 })
+
+const PORT = process.env.PORT || 8700;
+http.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
