@@ -1,4 +1,4 @@
-const socket = io('https://your-backend.herokuapp.com');
+const socket = io('http://localhost:8600');
 
 // get DOM element in respective js variables 
 const form=document.getElementById('send-container');
